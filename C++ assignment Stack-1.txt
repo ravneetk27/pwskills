@@ -1,0 +1,60 @@
+Assignment Stack-1 solutions:
+
+Ans.1)    option 2)  [2]
+
+Ans.2)   code
+
+#include<iostream>
+#include<stack>
+using namespace std;
+void removek(stack<int>& st , int& k){
+    if(st.size()==0){
+       cout<<"stack is empty"<<endl;
+       return;
+    }
+    int n = st.size()-k+1;
+    stack<int> temp;
+    while(st.size()>n){
+        int x = st.top();
+        temp.push(x);
+        st.pop();
+    }
+    st.pop();
+    while(temp.size()>0){
+        st.push(temp.top());
+        temp.pop();
+    }
+}
+
+void display(stack<int>& st){
+    stack<int> t1;
+    while(st.size()>0){
+      
+        t1.push(st.top());
+        st.pop();
+    }
+
+    while(t1.size()>0){
+        cout<<t1.top()<<" ";
+        st.push(t1.top());
+        t1.pop();
+    }
+}
+
+int main(){
+    stack<int> st;
+    st.push(10);
+    st.push(15);
+    st.push(6);
+    st.push(7);
+    st.push(8);
+    st.push(9);
+    int k = 3;
+    removek(st,k);
+    display(st);                                                                                                                                            
+}
+
+
+Ans.3)   option 2)
+
+Ans.4)   option 3) and option 4)
