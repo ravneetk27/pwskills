@@ -1,0 +1,155 @@
+ASSIGNMENT Binary Tree Part-1
+solutions
+
+
+Ans 1. Find the product of all values in binary tree
+
+#include<iostream>
+#include<climits>
+using namespace std;
+class node{
+    public:
+    int val;
+    node* left;
+    node* right;
+    int size=0;
+    node(int val){
+        this->val = val;
+        this->left = NULL;
+        this->right =NULL;
+        
+    }
+};
+
+void display(node* root){
+    if(root==NULL) return;
+    cout<<root->val<<" ";
+    display(root->left);
+    display(root->right);
+}
+
+
+int multiply(node* root){
+    if(root==NULL) return 1;
+    return root->val * multiply(root->left) * multiply(root->right);
+}
+
+
+int main(){
+    node* a = new node(1);
+    node* b = new node(2);
+    node* c = new node(3);   
+    node* d = new node(4);
+    node* e = new node(5);
+    node* f = new node(6);
+    node* g = new node(7);
+    
+    a->left = b;
+    a->right = c;
+    b->left = d;
+    b->right = e;
+    c->left = f;
+    c->right=g;
+    
+
+    display(a);
+    cout<<endl;
+    cout<<multiply(a);
+
+}
+
+
+Ans 2. Find the min value in binary tree
+
+#include<iostream>
+#include<climits>
+using namespace std;
+class node{
+    public:
+    int val;
+    node* left;
+    node* right;
+    int size=0;
+    node(int val){
+        this->val = val;
+        this->left = NULL;
+        this->right =NULL;
+        
+    }
+};
+
+void display(node* root){
+    if(root==NULL) return;
+    cout<<root->val<<" ";
+    display(root->left);
+    display(root->right);
+}
+
+
+int minintree(node* root){
+    if(root==NULL) return INT_MAX;
+
+    return min(root->val,min(minintree(root->left),minintree(root->right)));
+}
+int main(){
+    node* a = new node(-1);
+    node* b = new node(-2);
+    node* c = new node(3);      
+    node* d = new node(4);
+    node* e = new node(-5);
+    node* f = new node(6);
+    node* g = new node(7);
+   
+    
+    a->left = b;
+    a->right = c;
+    b->left = d;
+    b->right = e;
+    c->left = f;
+    c->right=g;
+    
+    display(a);
+    cout<<endl;
+    cout<<minintree(a);
+
+}
+
+Ans 3. Leetcode 110
+
+
+class Solution {
+public:
+    int level(TreeNode* root){
+        if(root==NULL ) return 0;
+        return 1 + max(level(root->left),level(root->right));
+    }
+
+    bool isBalanced(TreeNode* root) {
+        if(root==NULL) return true;
+        else if(level(root->left)-level(root->right)>1 || level(root->right)-level(root->left)>1) return false;
+        
+
+        bool leftans = isBalanced(root->left);
+        if(leftans==false) return false;
+        bool rightans = isBalanced(root->right);
+        if(rightans==false) return false;
+        return true;
+    }
+};
+
+Ans 4. Leetcode 101
+
+
+class Solution {
+public:
+    bool sym(TreeNode* p , TreeNode* q){
+        if(!p and !q) return true;
+        if(!p or !q) return false;
+        if(p->val==q->val and sym(p->left,q->right) and sym(p->right,q->left)) return true;
+        return false; 
+    }
+    bool isSymmetric(TreeNode* root) {
+            if(!root) return true;
+            return sym(root->left,root->right);
+    }
+};
