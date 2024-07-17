@@ -1,0 +1,36 @@
+Solution of Output and variables ASSIGNMENT
+
+Ans 1. cout<<"Physics"<<endl;
+        cout<<"Wallah"<<endl;
+
+Ans 2.
+#include<iostream>
+using namespace std;
+int main(){
+    for(int i=1 ;i<=6 ;i++){
+        for(int j=i ;j<=6 ;j++){
+            if(i+j==10){
+                cout<<i<<"+"<<j<<"="<<i+j<<endl;
+            }
+        }
+    }
+}
+
+Ans 3.
+       1] int = 4 bytes
+       2] bool = 1 bytes
+       3] float = 4 bytes
+
+Ans 4.  output 6 4
+
+Ans 5. 
+#include<iostream>
+using namespace std;
+int main(){
+	int r = 10;
+        int cir = 13.7*r*r;
+        cout<<"circumference of circle "<<cir<<endl;
+}
+
+Ans 6.  How many of these can be a variable name?
+         ans =  2
