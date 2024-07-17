@@ -1,0 +1,39 @@
+Solutions of assignment week 1
+
+ans 1.  0
+
+ans 2.  1 1
+
+ans 3.  2
+
+ans 4 . WAP for finding the volume of the cylinder by taking radius and height as input.
+
+#include<iostream>
+using namespace std;
+int main(){
+    int r;
+    int h;
+    cout<<"enter radius of cylinder : ";
+    cin>>r;
+    cout<<"enter height of cylinder : ";
+    cin>>h;
+    int volume = 3.14*r*r*h;
+    cout<<"volume of cylinder : "<<volume<<endl;
+}
+
+ans 5. WAP to find the difference between ASCII of two characters ,take them as input .
+
+#include<iostream>
+using namespace std;
+int main(){
+    char a;
+    char b;
+    cout<<"enter first character : ";
+    cin>>a;
+    cout<<"enter second character : ";
+    cin>>b;
+    int diff = abs(a-b);
+    cout<<"difference between ASCII of two characters is "<<diff<<endl;
+}
+
+ans 6.  49
