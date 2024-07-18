@@ -1,0 +1,109 @@
+solutions of Array Part 1
+
+Ans 1. 
+#include<iostream>
+using namespace std;
+int main(){
+    int arr[]={2,3,5,4,1};
+    int size = sizeof(arr)/sizeof(arr[0]);
+    int product = 1;
+    for(int i=0; i<size ;i++){
+        product=product*arr[i];
+    }
+    cout<<"product of all the elements : "<<product<<endl;
+}
+
+Ans 2.
+#include<iostream>
+#include<climits>
+using namespace std;
+int main(){
+    int arr[]={2,33,7,-2,1};
+    int size = sizeof(arr)/sizeof(arr[0]);
+    int max = INT_MIN;
+    int s = INT_MIN;
+    for(int i=0 ;i<size ;i++){
+        if(max<arr[i]){
+           s=max;
+           max=arr[i];
+           continue;
+        }
+        else if(s<arr[i] && s<max){
+               s=arr[i];
+        }
+    }
+    cout<<"second largest element in the Array : "<<s<<endl;
+}
+
+Ans 3.
+#include<iostream>
+#include<climits>
+using namespace std;
+int main(){
+    int arr[]={2,33,7,-2,1};
+    int size = sizeof(arr)/sizeof(arr[0]);
+    int min = INT_MAX;
+    for(int i=0 ;i<size ;i++){
+        if(min>arr[i]){
+           min=arr[i];
+        }
+    }
+    cout<<"minimum element in the Array : "<<min<<endl;
+}
+
+Ans 4. 
+#include<iostream>
+#include<climits>
+using namespace std;
+int main(){
+    int arr[]={2,3,3,7,-2,1};
+    int size = sizeof(arr)/sizeof(arr[0]);
+    bool flag = true;
+    for(int i=0 ;i<size ;i++){
+        for(int j=i+1 ;j<size ;j++){
+            if(arr[i]==arr[j]){
+                flag=false;
+                break;
+            }
+        }
+    }
+    if(flag==false){
+        cout<<"array contains duplicates";
+    }
+    else{
+        cout<<"array does not contain duplicates";
+    }
+
+
+}
+
+
+Ans 5.
+#include <iostream>
+using namespace std;
+int findSmallestMissingPositive(int arr[], int size) {
+    if (arr[0] != 1) {
+        return 1;
+    }
+
+    for (int i = 0; i < size - 1; ++i) {
+        if (arr[i + 1] - arr[i] > 1) {
+            return arr[i] + 1;
+        }
+    }
+    return arr[size - 1] + 1;
+}
+
+int main() {
+    int arr[] = {1, 2, 3, 4, 6, 7, 8}; // Example sorted array
+    int size = sizeof(arr) / sizeof(arr[0]);
+
+    int missingElement = findSmallestMissingPositive(arr, size);
+    cout << "The smallest missing positive element is: " << missingElement <<endl;
+
+    return 0;
+}
+
+
+
+Ans 6. 49
