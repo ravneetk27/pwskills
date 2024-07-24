@@ -1,0 +1,128 @@
+Solution of assignment Binary Tree Part-2
+
+Ans2 : Level Order Traversal (Using Queue) [LeetCode 102]
+
+class Solution {
+public:
+    
+    vector<vector<int>> levelOrder(TreeNode* root) {
+        
+        vector<vector<int>> ans;
+        if(root==NULL) return ans;
+        queue<TreeNode*> q;
+        q.push(root);
+        while(q.size()>0){
+            int levelsize = q.size();
+            vector<int> v;
+            for(int i=0 ;i<levelsize ;i++){
+            TreeNode* temp = q.front();
+            v.push_back(temp->val);
+            q.pop();
+            if(temp->left) q.push(temp->left);
+            if(temp->right) q.push(temp->right);
+            }
+            ans.push_back(v);
+        }
+        return ans;
+    }
+};
+
+
+
+Ans 3 :
+#include<iostream>
+#include<climits>
+#include<queue>
+using namespace std;
+class node{
+    public:
+    int val;
+    node* left;
+    node* right;
+    int size=0;
+    node(int val){
+        this->val = val;
+        this->left = NULL;
+        this->right =NULL;
+        
+    }
+};
+
+//bfstraversal
+void queu(node* root){
+    queue<node*> q;
+    q.push(root);
+    while(q.size()>0){
+        node* temp = q.front();
+        q.pop();
+        cout<<temp->val<<" ";
+        
+        if(temp->right!=NULL) q.push(temp->right);
+        if(temp->left!=NULL) q.push(temp->left);
+    }
+    cout<<endl;
+}
+
+
+int main(){
+    node* a = new node(1);
+    node* b = new node(2);
+    node* c = new node(3);      
+    node* d = new node(4);
+    node* e = new node(5);
+    node* f = new node(6);
+    node* g = new node(7);
+    
+    
+    a->left = b;
+    a->right = c;
+    b->left = d;
+    b->right = e;
+    c->left = f;
+    c->right=g;
+  
+    queu(a);
+}
+
+
+
+Ans 4. Zigzag Level Order Traversal [LeetCode 103]
+
+class Solution {
+public:
+    int level(TreeNode* root){
+    if(root==NULL ) return 0 ;
+    return 1 + max(level(root->left),level(root->right));
+    }
+
+    void nval(TreeNode* root , int level,int c , vector<int> &v){
+    if(root==NULL) return ;
+    
+    if(level==c){
+        v.push_back(root->val);
+        return;
+    }
+    if(level%2!=0){
+       nval(root->left,level,c+1,v);
+       nval(root->right,level,c+1,v);
+    }
+    else{
+        nval(root->right,level,c+1,v);
+        nval(root->left,level,c+1,v);
+    }
+    }
+    
+    void order(TreeNode* root,vector<vector<int>> &ans){
+        int n = level(root);
+        for(int i=1 ;i<=n ;i++){
+            vector<int> v ;
+            nval(root,i,1,v);
+            ans.push_back(v);
+        }
+    }
+    vector<vector<int>> zigzagLevelOrder(TreeNode* root) {
+        vector<vector<int>> ans;
+        order(root,ans);
+        return ans;
+    }
+};
