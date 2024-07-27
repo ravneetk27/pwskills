@@ -1,0 +1,159 @@
+Solution of Array 2 | week 5 assignment
+
+Ans 1.
+#include<iostream>
+using namespace std;
+int main(){
+    int arr[]={6,3,9,67,2,19};
+    int x;
+    cout<<"choose a number from given array : ";
+    cin>>x;
+    int n = sizeof(arr)/sizeof(arr[0]);
+    int count = 0;
+    for(int i=0 ; i<n ; i++){
+        if(arr[i]>x){
+            count++;
+        }
+    }
+    cout<<"number of elements strictly greater than "<<x<<" are "<<count<<endl;
+}
+
+
+ANS 2: WAP to find the largest three elements in the array.
+#include<iostream>
+#include<climits>
+#include<vector>
+using namespace std;
+int main(){
+    int arr[]={6,36,19,0,2,189};
+    int n = sizeof(arr)/sizeof(arr[0]);
+    
+    int max = INT_MIN;
+
+    int idx1=0;
+    int idx2=0;
+    int a=0;
+    int b=0;
+    int c=0;
+    for(int i=0;i<n ;i++){
+        if(max<arr[i]){
+            max=arr[i];
+            a=arr[i];
+            idx1=i;
+        }
+    }
+    max=INT_MIN;
+    for(int i=0;i<n ;i++){
+        if(max<arr[i] && i!=idx1){
+            max=arr[i];
+            b=arr[i];
+            idx2=i;
+        }
+    }
+    max=INT_MIN;
+    for(int i=0;i<n ;i++){
+        if(max<arr[i] && i!=idx2 && i!=idx1){
+            max=arr[i];
+            c=arr[i];
+        }
+    }
+    cout<<"3 largest numbers in array are : "<<a<<" "<<b<<" "<<c<<endl;
+}
+
+
+Ans 3:
+//Check if the given array is sorted or not
+#include<iostream>
+using namespace std;
+int main(){
+   int arr[]={74,89,99,100,101};
+   int n = sizeof(arr)/sizeof(arr[0]);
+   bool flag = true;
+   for(int i=0 ;i<n-1 ;i++){
+    if(arr[i]>arr[i+1]){
+        flag=false;
+        break;
+    }
+    
+   }
+   if(flag==true){
+    cout<<"given array is sorted"<<endl;
+   }
+   else{
+       cout<<"given array is not sorted"<<endl;
+   }
+}
+
+
+Ans 4 :
+//Find the difference between the sum of elements at even indices to the sum of elements at odd
+//indices.
+
+#include<iostream>
+using namespace std;
+int main(){
+    int arr[]={3,4,7,5,4,9,11};
+    int n=sizeof(arr)/sizeof(arr[0]);
+    int evensum = 0;
+    int oddsum = 0;
+    for(int i=0 ;i<n ;i++){
+        if(i%2==0){
+            evensum+=arr[i];
+        }
+        else{
+            oddsum+=arr[i];
+        }
+    }
+    int diff = evensum-oddsum;
+    cout<<"difference between the sum of elements at even indices to the sum of elements at odd indices : "<<diff<<endl;
+}
+
+
+
+Ans 5 :
+//Given an array of integers, change the value of all odd indexed elements to its second multiple
+//and increment all even indexed values by 10.
+#include<iostream>
+using namespace std;
+int main(){
+    int arr[]={1,2,3,4,4,3,1};
+    int n=sizeof(arr)/sizeof(arr[0]);
+    for(int i=0 ;i<n ;i++){
+        if(i%2==0){
+            arr[i]=arr[i]+10;
+        }
+        else{
+            arr[i]=arr[i]*2;
+        }
+    }
+    for(int i=0 ;i< n;i++){
+        cout<<arr[i]<<" ";
+    }
+}
+
+
+Ans 7 :
+//If an array arr contains n elements, then check if the given array is a palindrome or not .
+#include<iostream>
+using namespace std;
+int main(){
+    int arr[]={1,2,3,4,4,3,1};
+    int i = 0;
+    int n=sizeof(arr)/sizeof(arr[0]);
+    int j = n-1;
+    bool flag = true;
+    while(i<=j){
+        if(arr[i]!=arr[j]){
+            flag = false;
+            break;
+        }
+        i++;
+        j--;
+    }
+    if(flag==true){
+        cout<<"given array is palindrome "<<endl;
+    }
+    else{
+        cout<<"given array is not palindrome "<<endl;
+    }
+}
