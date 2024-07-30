@@ -1,0 +1,29 @@
+Solutions of Maps and Sets
+
+Ans 2.  Max number of k-sum pairs    (leetcode 1679)
+
+class Solution {
+public:
+    int maxOperations(vector<int>& arr, int k) {
+        
+        int count =0;
+        unordered_map<int,int> mp;
+        for(auto x : arr){
+            mp[x]++;
+        }
+        for(auto x : arr){
+            int diff = k-x;
+            if(diff==x){
+                count+=(mp[diff]/2);
+                mp.erase(x);
+            }
+            else if(mp.count(diff)){
+                count+=min(mp[diff],mp[x]);
+                mp.erase(x);
+                mp.erase(diff);
+            }       
+        }
+
+        return count;
+    }
+};
