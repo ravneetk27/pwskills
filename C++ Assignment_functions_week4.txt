@@ -1,0 +1,102 @@
+C++ Assignment Functions week 4
+
+Q1 : Write a function to print squares of first n natural numbers, taking n as argument to the function
+#include<iostream>
+#include<vector>
+using namespace std;
+vector<int> square(int n){
+    vector<int> ans;
+    for(int i=1 ;i<=n ;i++){
+       int p = i*i;
+       ans.push_back(p);
+    }
+    return ans;
+}
+
+int main(){
+    int n ;
+    cout<<"enter a number : ";
+    cin>>n;
+    vector<int> a = square(n);
+    cout << "Squares of numbers from 1 to " << n << " are: ";
+    for (int i = 0; i < a.size(); i++) {
+        cout << a[i] << " ";
+    }
+    cout << endl;
+}
+
+
+Q2 : Write a function that takes the radius of a circle as an argument and returns its area.
+#include<iostream>
+using namespace std;
+float area(float r){
+    return 3.14*r*r;
+}
+int main(){
+    float r;
+    cout<<"enter radius of circle : ";
+    cin>>r;
+    cout<<"area of circle is : "<<area(r)<<endl;
+}
+
+Q3: Given two numbers a and b, write a function to print all odd numbers between them.
+#include<iostream>
+#include<vector>
+using namespace std;
+vector<int> odd(int a ,int b){
+    vector<int> ans;
+    for(int i=a+1 ;i<b ; i++){
+        if(i%2!=0){
+            ans.push_back(i);
+        }
+    }
+    return ans;
+}
+int main(){
+    int a ,b ;
+    cout<<"enter first number : ";
+    cin>>a;
+    cout<<"enter second number : ";
+    cin>>b;
+    vector<int> result = odd(a,b);
+    for(int i=0 ;i<result.size();i++){
+        cout<<result[i]<<" ";
+    }
+}
+
+
+
+Q4: Write a function to count the number of digits in a number and then print the square of this number.
+#include<iostream>
+using namespace std;
+int countdigits(int n){
+    int count=0;
+    while(n>0){
+        if(n<10){
+            count++;
+            return count*count;
+        }
+        n=n/10;
+        count++;
+    }
+}
+int main(){
+    int n;
+    cout<<"enter a number : ";
+    cin>>n;
+    cout<<countdigits(n);
+}
+
+
+Q5: The minimum number of functions present in any C++ program is:
+Ans : option2. 1
+
+Q6 : State True and False:
+1. A function may be called more than once from any other function
+Ans True
+
+2. It is necessary for a function to return some value.
+Ans False
+
+Q7 :		
+Ans : Yes, the same function name can be used for different functions in C++ without any conflict, thanks to a feature called function overloading
