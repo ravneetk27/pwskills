@@ -1,0 +1,131 @@
+SOLUTION OF ASSIGNMENT ARRAYS 3 || WEEK 5
+
+Q1 : Count the number of triplets whose sum is equal to the given value x.
+#include <iostream>
+#include <vector>
+#include <algorithm>
+
+using namespace std;
+
+// Function to count the number of triplets
+int countTriplets(vector<int>& arr, int x) {
+    int n = arr.size();
+    int count = 0;
+
+    // Sort the array to use the two-pointer approach
+    sort(arr.begin(), arr.end());
+
+    // Iterate through the array
+    for (int i = 0; i < n - 2; i++) {
+        int left = i + 1;
+        int right = n - 1;
+
+        // Use two pointers to find the triplets
+        while (left < right) {
+            int currentSum = arr[i] + arr[left] + arr[right];
+
+            if (currentSum == x) {
+                count++;
+                left++;
+                right--;
+            } else if (currentSum < x) {
+                left++;
+            } else {
+                right--;
+            }
+        }
+    }
+
+    return count;
+}
+
+int main() {
+    vector<int> arr = {1, 5, 3, 2, 4, 6};
+    int x = 10;
+
+    int result = countTriplets(arr, x);
+    cout << "Number of triplets with sum " << x << " is " << result << endl;
+
+    return 0;
+}
+
+
+
+Q2 Find the factorial of a large number.
+#include<iostream>
+#include<climits>
+using namespace std;
+int fact(int n ){
+    if(n==0 || n==1) return 1;
+    return n*fact(n-1);
+}
+int main(){
+    int arr[]={2,3,5,6,1};
+    int n = sizeof(arr)/sizeof(arr[0]);
+    int m = INT_MIN;
+    for(int i=0 ;i<n ;i++){
+        if(m<arr[i]){
+            m=arr[i];
+        }
+    }
+    cout<<fact(m);
+    
+}
+
+
+Q3 : Find the first non-repeating element in the array .
+#include<iostream>
+#include<algorithm>
+using namespace std;
+int main(){
+    int arr[]={6,6,9,4,4,2,2,3,3};
+    int n = sizeof(arr)/sizeof(arr[0]);
+    sort(arr,arr+n);
+    int i=0 ;
+    while(i<n){
+        if(i==n-1 || arr[i]!=arr[i+1]){
+            cout<<"non repeating element : "<<arr[i];
+            break;
+        }
+        else{
+        i+=2;
+        }
+    }    
+}
+
+
+
+Q4 : Check if an array is a subset of another .
+#include<iostream>
+using namespace std;
+
+int main() {
+    int a[] = {2, 3, 4, 5, 6, 7, 8};
+    int b[] = {3, 4, 5, 6, 9};
+    int n = sizeof(a) / sizeof(a[0]);
+    int m = sizeof(b) / sizeof(b[0]);
+    bool isSubset = true;
+
+    for (int i = 0; i < m; i++) {
+        bool found = false;
+        for (int j = 0; j < n; j++) {
+            if (b[i] == a[j]) {
+                found = true;
+                break;
+            }
+        }
+        if (!found) {
+            isSubset = false;
+            break;
+        }
+    }
+
+    if (isSubset) {
+        cout << "b is a subset of a" << endl;
+    } else {
+        cout << "b is not a subset of a" << endl;
+    }
+
+    return 0;
+}
+
