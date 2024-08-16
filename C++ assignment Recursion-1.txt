@@ -1,0 +1,83 @@
+Solution of assignment Recursion-1
+
+Q1 : Print an increasing-decreasing sequence using recursion
+Example: n = 5, the output should be:
+1 2 3 4 5 4 3 2 1  
+
+#include<iostream>
+using namespace std;
+void rev(int n){
+  if(n==0) return;
+  cout<<n<<" ";
+  rev(n-1);
+  cout<<n<<" ";
+}
+
+int main(){
+    int n;                               //5 4 3 2 1 1 2 3 4 5
+    cout<<"enter a number : ";          // 1 2 3 4 5 4 3 2 1
+    cin>>n;
+    rev(n);
+
+}
+
+
+Q2:  Write a program to print the sum of all odd numbers from a to b (inclusive) using
+recursion.
+#include<iostream>
+using namespace std;
+int sumodd(int a , int b,int sum){
+    if(a>b) return sum;
+    if(a%2!=0) return sumodd(a+1,b,sum+a);
+    return sumodd(a+1,b,sum);
+}
+int main(){
+   int a , b;
+   cin>>a>>b;
+   cout<<sumodd(a,b,0);
+}
+
+
+
+Q3 : Given a positive integer, return true if it is a power of 2  using recursion
+
+#include<iostream>
+using namespace std;
+bool power(int n){
+  if(n==1) return true;
+  
+  if(n<1 || n%2!=0) return false;
+  
+  return power(n/2);
+}
+
+int main(){
+    int n;                               
+    cout<<"enter a number : ";         
+    cin>>n;
+    if(power(n)){
+      cout<<n<<" is power of 2";
+    }
+    else{
+      cout<<n<<" is not power of 2";
+    }
+}
+
+
+Q4 : There are n stairs, and a person standing at the bottom wants to climb the stairs to
+reach the nth stair= The person can climb either 1, , or  stairs at a time= Write a
+program to count the number o" ways the person can reach the top using recursion
+
+#include<iostream>
+using namespace std;
+int stairs(int n,int count){
+    if(n<0) return 0;
+    if(n==0) return count;
+    return count = max(stairs(n-3,count+1),max(stairs(n-1,count+1),stairs(n-2,count+1)));
+}
+int main(){
+    int n;
+    cout<<"enter a number ";
+    cin>>n;
+    cout<<stairs(n,0);
+}
