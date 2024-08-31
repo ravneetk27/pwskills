@@ -1,0 +1,98 @@
+Solution of Assignment Conditional-2
+
+Ans 1 :
+#include <iostream>
+using namespace std;
+
+int main() {
+    int amount;
+    cout << "Enter the amount: ";
+    cin >> amount;
+
+  
+    int notes_500 = 0, notes_100 = 0, notes_50 = 0, notes_20 = 0, notes_10 = 0, notes_5 = 0, notes_1 = 0;
+
+    switch (amount / 500) {
+        case 0: 
+            break;  // No notes of 500
+        default:
+            notes_500 = amount / 500;
+            amount %= 500;
+    }
+
+    switch (amount / 100) {
+        case 0:
+            break;  // No notes of 100
+        default:
+            notes_100 = amount / 100;
+            amount %= 100;
+    }
+
+    switch (amount / 50) {
+        case 0:
+            break;  // No notes of 50
+        default:
+            notes_50 = amount / 50;
+            amount %= 50;
+    }
+
+    switch (amount / 20) {
+        case 0:
+            break;  // No notes of 20
+        default:
+            notes_20 = amount / 20;
+            amount %= 20;
+    }
+
+    switch (amount / 10) {
+        case 0:
+            break;  // No notes of 10
+        default:
+            notes_10 = amount / 10;
+            amount %= 10;
+    }
+
+    switch (amount / 5) {
+        case 0:
+            break;  // No notes of 5
+        default:
+            notes_5 = amount / 5;
+            amount %= 5;
+    }
+
+    switch (amount / 1) {
+        case 0:
+            break;  // No notes of 1
+        default:
+            notes_1 = amount / 1;
+            amount %= 1;
+    }
+
+    // Display the result
+    if (notes_500 > 0) cout << "Notes of 500 = " << notes_500 << endl;
+    if (notes_100 > 0) cout << "Notes of 100 = " << notes_100 << endl;
+    if (notes_50 > 0) cout << "Notes of 50 = " << notes_50 << endl;
+    if (notes_20 > 0) cout << "Notes of 20 = " << notes_20 << endl;
+    if (notes_10 > 0) cout << "Notes of 10 = " << notes_10 << endl;
+    if (notes_5 > 0) cout << "Notes of 5 = " << notes_5 << endl;
+    if (notes_1 > 0) cout << "Notes of 1 = " << notes_1 << endl;
+
+    return 0;
+}
+
+
+Ans 2 :
+Output: a = 15, b = 15 , c = 0
+
+Ans 3 :
+Output: x and y are equal
+
+Ans 4 :
+First character 1
+Second character 1
+
+Ans 5 :
+Output: Value of t: 0
+
+Ans 6 :
+Output: N
