@@ -1,0 +1,195 @@
+C++ assignment Fundamental of Programming-1
+
+Ans 1 :
+#include<iostream>
+using namespace std;
+int main(){
+    int a , b;
+    cout<<"enter two numbers : ";
+    cin>>a>>b;
+    if(a>b){
+        cout<<a<<" is greater than "<<b<<endl;
+    }
+    else{
+        cout<<b<<" is greater than "<<a<<endl;
+    }
+}
+
+Ans 2 :
+#include<iostream>
+using namespace std;
+int main(){
+    float r ;
+    cout<<"enter radius of circle : ";
+    cin>>r;
+    float area = 3.14*r*r;
+    float cir = 2*3.14*r;
+    if(area>cir){
+        cout<<"area of circle "<<area<<" is greater than circumference of circle";
+    }
+    else{
+        cout<<"circumference of circle "<<cir<<" is greater than area of circle";
+    }
+}
+
+Ans 3 :
+#include<iostream>
+using namespace std;
+int main(){
+    int year;
+    cout<<"enter any year ";
+    cin>>year;
+    if((year % 4 == 0 && year % 100 != 0) || (year % 400 == 0)){
+        cout<<year<<" is leap year";
+    }
+    else{
+        cout<<year<<" is not a leap year";
+    }
+}
+
+Ans 4 :
+#include <iostream>
+using namespace std;
+
+int main() {
+    float length, breadth;
+    
+    cout << "Enter the length of the rectangle: ";
+    cin >> length;
+    
+    cout << "Enter the breadth of the rectangle: ";
+    cin >> breadth;
+    
+    // Calculate area and perimeter
+    float area = length * breadth;
+    float perimeter = 2 * (length + breadth);
+    
+    // Check if area is greater than perimeter
+    if (area > perimeter) {
+        cout << "The area of the rectangle (" << area << ") is greater than its perimeter (" << perimeter << ")." << endl;
+    } else {
+        cout << "The area of the rectangle (" << area << ") is not greater than its perimeter (" << perimeter << ")." << endl;
+    }
+
+    return 0;
+}
+
+Ans 5 :
+#include <iostream>
+using namespace std;
+
+int main() {
+    float side1, side2, side3;
+
+    // Input sides of the triangle
+    cout << "Enter the length of side 1: ";
+    cin >> side1;
+    cout << "Enter the length of side 2: ";
+    cin >> side2;
+    cout << "Enter the length of side 3: ";
+    cin >> side3;
+
+    // Check the type of triangle
+    if (side1 == side2 && side2 == side3) {
+        cout << "This is an Equilateral triangle." << endl;
+    } else if (side1 == side2 || side1 == side3 || side2 == side3) {
+        cout << "This is an Isosceles triangle." << endl;
+    } else {
+        cout << "This is a Scalene triangle." << endl;
+    }
+
+    return 0;
+}
+
+
+Ans 6 :
+#include<iostream>
+using namespace std;
+int main(){
+    int a , b , c ;
+    cout<<"enter marks of A B and C : ";
+    cin>>a>>b>>c;
+    if(a<b && b<c){
+        cout<<"a is scoring least marks";
+    }
+    else if(b<c && b<a){
+        cout<<"b is scoring least marks";
+    }
+    else{
+        cout<<"c is scoring least marks";
+    }
+}
+
+Ans 7 :
+#include<iostream>
+using namespace std;
+int main(){
+    int x , y;
+    cout<<"enter x : ";
+    cin>>x;
+    cout<<"enter y : ";
+    cin>>y;
+    if(x==0 && y!=0) cout<<"it lies on y axis";
+    else if(y==0 && x!=0) cout<<"it lies on x axis";
+    else cout<<" it lies on origin";
+}
+
+Ans 8 :
+#include <iostream>
+using namespace std;
+
+int main() {
+    int x1, y1, x2, y2, x3, y3;
+
+    // Input the coordinates of the three points
+    cout << "Enter x1, y1: ";
+    cin >> x1 >> y1;
+    cout << "Enter x2, y2: ";
+    cin >> x2 >> y2;
+    cout << "Enter x3, y3: ";
+    cin >> x3 >> y3;
+
+    // Check collinearity using the determinant method
+    int area = x1 * (y2 - y3) + x2 * (y3 - y1) + x3 * (y1 - y2);
+
+    if (area == 0) {
+        cout << "All 3 points lie on the same line." << endl;
+    } else {
+        cout << "The points do not lie on the same line." << endl;
+    }
+
+    return 0;
+}
+
+
+Ans 9 :
+#include <iostream>
+using namespace std;
+
+int main() {
+    char ch;
+
+    // Input character
+    cout << "Enter any character: ";
+    cin >> ch;
+
+
+    if ((ch >= 'A' && ch <= 'Z') || (ch >= 'a' && ch <= 'z')) {
+        cout << ch << " is an alphabet." << endl;
+    } 
+
+    else if (ch >= '0' && ch <= '9') {
+        cout << ch << " is a digit." << endl;
+    } 
+  
+    else {
+        cout << ch << " is a special character." << endl;
+    }
+
+    return 0;
+}
+
+
+Ans 10 :
+value of b and c are respectively 300 and 200
+
