@@ -1,0 +1,9 @@
+Ans 1 : O(n^{3/2})
+
+Ans 2 : O(n \log n)
+
+Ans 3 : O(n \log n)
+
+Ans 4 : O(n)
+
+Ans 5 : O(n \log n)
